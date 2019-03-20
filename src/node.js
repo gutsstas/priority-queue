@@ -8,22 +8,33 @@ class Node {
 	}
 
 	appendChild(node) {
-  	if (this.left == null) {
-		 this.left=node;
-	   node.parent=this;
-		 }
-		if (this.right==null) {
-		 this.right=node;
-		 node.parent=this;
-	     }
+		if (this.left == null) {
+				this.left = node;
+				node.parent = this;
+				return;
+			} else if (this.right == null) {
+				this.right = node;
+				node.parent = this;
+				return;
+			}
+			return;
 	}
 
 	removeChild(node) {
+		if(node==this.left) {
+				 this.left.parent=null;
+				 this.left=null;
+			     }
+			 else if(node==this.right){
+			       this.right.parent=null;
+				   this.right=null;
+				   }
+			      else throw new Error('Not a child');
 
 	}
 
 	remove() {
-
+		if (this.parent!=null) this.parent.removeChild(this);
 	}
 
 	swapWithParent() {
