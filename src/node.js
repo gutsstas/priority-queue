@@ -40,7 +40,8 @@ class Node {
 	swapWithParent() {
 
 
-		}
+
 	}
+}
 
 module.exports = Node;
